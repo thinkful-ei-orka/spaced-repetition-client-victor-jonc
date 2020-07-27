@@ -50,33 +50,19 @@ class RegistrationForm extends Component {
           <Label htmlFor='registration-name-input'>
             Enter your name<Required />
           </Label>
-          <Input
-            ref={this.firstInput}
-            id='registration-name-input'
-            name='name'
-            required
-          />
+          <Input ref={this.firstInput} id='registration-name-input' name='name' required />
         </div>
         <div>
           <Label htmlFor='registration-username-input'>
             Choose a username<Required />
           </Label>
-          <Input
-            id='registration-username-input'
-            name='username'
-            required
-          />
+          <Input id='registration-username-input' name='username' required />
         </div>
         <div>
           <Label htmlFor='registration-password-input'>
             Choose a password<Required />
           </Label>
-          <Input
-            id='registration-password-input'
-            name='password'
-            type='password'
-            required
-          />
+          <Input id='registration-password-input' name='password' type='password' required />
         </div>
         <footer>
           <Button type='submit'>
