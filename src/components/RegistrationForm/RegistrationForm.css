@@ -1,0 +1,35 @@
+.already-link {
+     color: red;
+     margin: 10px auto
+}
+
+.register-button {
+     margin-left: auto;
+     margin-right: auto;
+     width: 100px;
+}
+
+.registration-form-container {
+     display: flex;
+     justify-content: center;
+     flex-direction: column;
+}
+
+.registration-form-input {
+     display: flex;
+     justify-content: center;
+     flex-direction: column;
+}
+
+.registration-footer {
+     display: flex;
+     justify-content: center;
+     flex-direction: column;
+}
+
+Input {
+     width: 25%;
+     /* margin-left: auto;
+     margin-right: auto; */
+     margin: 10px auto
+}
