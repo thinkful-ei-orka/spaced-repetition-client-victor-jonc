@@ -6,27 +6,36 @@ import config from '../../config';
 
 export default class Dashboard extends Component {
   state = {
-    error: null,
-    isLoading: true,
+    error: null
   };
+
   static contextType = UserContext;
 
   getData = () => {
-    return fetch(`${config.API_ENDPOINT}/language`, {
+    console.log('line 15')
+     fetch(`${config.API_ENDPOINT}/language`, {
       method: 'GET',
       headers: {
         authorization: `bearer ${TokenService.getAuthToken()}`,
-      },
+      }
     })
-      .then((res) => {
-        const language = res.language.json();
-        console.log(language);
-        //    this.context.setWords(words);
-        this.context.setLanguage(language);
-      })
-      .then(() => this.context.setIsLoading())
+    .then(res => res.json())
+    .then(res => {
+      this.context.setWords(res.words)
+      this.context.setLanguage(res.language)
+      this.context.setIsLoading();
+      console.log(res.language);
+      return;
+    })
+      // .then((res) => {
+      //   const language = res.language.json();
+      //   console.log(language);
+      //   //    this.context.setWords(words);
+      //   this.context.setLanguage(language);
+      // })
+      // .then(() => this.context.setIsLoading())
 
-      .catch((error) => this.setState({ error: error }));
+      .catch(error => this.setState({ error: error }));
   };
 
   componentDidMount() {
@@ -34,7 +43,7 @@ export default class Dashboard extends Component {
   }
 
   render() {
-    if (this.context.isLoading === true) {
+    if (this.context.isLoading) {
       return <div>Loading...</div>;
     }
     return (
