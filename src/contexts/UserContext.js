@@ -145,11 +145,23 @@ export class UserProvider extends Component {
     const value = {
       user: this.state.user,
       error: this.state.error,
+      language: {name: 'Spanish', total_score:0},
+      words: this.state.words,
+      score: this.state.score,
+      nextWord: this.state.nextWord,
+      currentWord: this.state.currentWord,
+      attempt: this.state.attempt,
       setError: this.setError,
       clearError: this.clearError,
       setUser: this.setUser,
       processLogin: this.processLogin,
       processLogout: this.processLogout,
+      setLanguage: this.setLanguage,
+      setWords: this.setWords,
+      setNextWord: this.setNextWord,
+      setScore: this.setScore,
+      setCurrentWord: this.setCurrentWord,
+      setAttempt: this.setAttempt,
     };
     return (
       <UserContext.Provider value={value}>
