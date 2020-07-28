@@ -39,6 +39,7 @@ export class UserProvider extends Component {
       nextWord: null,
       currentWord: null,
       attempt: null,
+      isLoading: true,
     };
 
     const jwtPayload = TokenService.parseAuthToken();
@@ -76,7 +77,7 @@ export class UserProvider extends Component {
     this.setState({ language });
   };
   setWords = (words) => {
-    this.setSate({ words });
+    this.setState({ words });
   };
   setNextWord = (nextWord) => {
     this.setState({ nextWord });
@@ -149,7 +150,7 @@ export class UserProvider extends Component {
     const value = {
       user: this.state.user,
       error: this.state.error,
-      language: { name: 'Spanish', total_score: 0 },
+      language: this.state.language,
       words: this.state.words,
       score: this.state.score,
       nextWord: this.state.nextWord,
@@ -166,7 +167,7 @@ export class UserProvider extends Component {
       setScore: this.setScore,
       setCurrentWord: this.setCurrentWord,
       setAttempt: this.setAttempt,
-      isLoading: true,
+      isLoading: this.state.isLoading,
       setIsLoading: this.setIsLoading,
     };
     return (
