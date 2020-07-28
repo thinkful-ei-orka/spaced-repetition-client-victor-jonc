@@ -12,7 +12,7 @@ const UserContext = React.createContext({
   processLogin: () => {},
   processLogout: () => {},
   language: null,
-  words: null,
+  words: [],
   score: null,
   nextWord: {},
   currentWord: {},
@@ -34,7 +34,7 @@ export class UserProvider extends Component {
       user: {},
       error: null,
       language: null,
-      words: null,
+      words: [],
       score: null,
       nextWord: null,
       currentWord: null,
@@ -67,6 +67,10 @@ export class UserProvider extends Component {
     IdleService.unRegisterIdleResets();
     TokenService.clearCallbackBeforeExpiry();
   }
+
+  setIsLoading = () => {
+    this.setState({ isLoading: false });
+  };
 
   setLanguage = (language) => {
     this.setState({ language });
@@ -145,7 +149,7 @@ export class UserProvider extends Component {
     const value = {
       user: this.state.user,
       error: this.state.error,
-      language: {name: 'Spanish', total_score:0},
+      language: { name: 'Spanish', total_score: 0 },
       words: this.state.words,
       score: this.state.score,
       nextWord: this.state.nextWord,
@@ -162,6 +166,8 @@ export class UserProvider extends Component {
       setScore: this.setScore,
       setCurrentWord: this.setCurrentWord,
       setAttempt: this.setAttempt,
+      isLoading: true,
+      setIsLoading: this.setIsLoading,
     };
     return (
       <UserContext.Provider value={value}>
