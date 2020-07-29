@@ -6,23 +6,23 @@ import IdleService from '../services/idle-service';
 const UserContext = React.createContext({
   user: {},
   error: null,
-  setError: () => {},
-  clearError: () => {},
-  setUser: () => {},
-  processLogin: () => {},
-  processLogout: () => {},
+  setError: () => { },
+  clearError: () => { },
+  setUser: () => { },
+  processLogin: () => { },
+  processLogout: () => { },
   language: null,
   words: [],
-  score: null,
+  totalScore: null,
   nextWord: {},
   currentWord: {},
-  attempt: null,
-  setLanguage: () => {},
-  setWords: () => {},
-  setNextWord: () => {},
-  setScore: () => {},
-  setCurrentWord: () => {},
-  setAttempt: () => {},
+  guess: null,
+  setLanguage: () => { },
+  setWords: () => { },
+  setNextWord: () => { },
+  setScore: () => { },
+  setCurrentWord: () => { },
+  setGuess: () => { },
 });
 
 export default UserContext;
@@ -35,10 +35,10 @@ export class UserProvider extends Component {
       error: null,
       language: null,
       words: [],
-      score: null,
+      totalScore: null,
       nextWord: null,
       currentWord: null,
-      attempt: null,
+      guess: null,
       isLoading: true,
     };
 
@@ -82,14 +82,14 @@ export class UserProvider extends Component {
   setNextWord = (nextWord) => {
     this.setState({ nextWord });
   };
-  setScore = (score) => {
-    this.setState({ score });
+  setScore = (totalScore) => {
+    this.setState({ totalScore });
   };
   setCurrentWord = (currentWord) => {
     this.setState({ currentWord });
   };
-  setAttempt = (attempt) => {
-    this.setState({ attempt });
+  setGuess = (guess) => {
+    this.setState({ guess });
   };
 
   setError = (error) => {
@@ -152,10 +152,10 @@ export class UserProvider extends Component {
       error: this.state.error,
       language: this.state.language,
       words: this.state.words,
-      score: this.state.score,
+      totalScore: this.state.totalScore,
       nextWord: this.state.nextWord,
       currentWord: this.state.currentWord,
-      attempt: this.state.attempt,
+      guess: this.state.guess,
       setError: this.setError,
       clearError: this.clearError,
       setUser: this.setUser,
@@ -166,7 +166,7 @@ export class UserProvider extends Component {
       setNextWord: this.setNextWord,
       setScore: this.setScore,
       setCurrentWord: this.setCurrentWord,
-      setAttempt: this.setAttempt,
+      setGuess: this.setGuess,
       isLoading: this.state.isLoading,
       setIsLoading: this.setIsLoading,
     };
