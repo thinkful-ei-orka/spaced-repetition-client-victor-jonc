@@ -45,39 +45,39 @@ class LoginForm extends Component {
     const { error } = this.state
     return (
       <div className='login-form-container'>
-      <form
-        className='LoginForm'
-        onSubmit={this.handleSubmit}
-      >
-        <div role='alert'>
-          {error && <p>{error}</p>}
-        </div>
-        <div className='login-form-input'>
-          <Label htmlFor='login-username-input'>
-            Username
+        <form
+          className='LoginForm'
+          onSubmit={this.handleSubmit}
+        >
+          <div role='alert' aria-live='polite'>
+            {error && <p>{error}</p>}
+          </div>
+          <div className='login-form-input'>
+            <Label htmlFor='login-username-input'>
+              Username
           </Label>
-          <Input
-            ref={this.firstInput}
-            id='login-username-input'
-            name='username'
-            required
-          />
-        </div>
-        <div className='login-form-input'>
-          <Label htmlFor='login-password-input'>
-            Password
+            <Input
+              ref={this.firstInput}
+              id='login-username-input'
+              name='username'
+              required
+            />
+          </div>
+          <div className='login-form-input'>
+            <Label htmlFor='login-password-input'>
+              Password
           </Label>
-          <Input
-            id='login-password-input'
-            name='password'
-            type='password'
-            required
-          />
-        </div>
-        <Button type='submit' className='login-button'>
-          Login
+            <Input
+              id='login-password-input'
+              name='password'
+              type='password'
+              required
+            />
+          </div>
+          <Button type='submit' className='login-button'>
+            Login
         </Button>
-      </form>
+        </form>
       </div>
     )
   }

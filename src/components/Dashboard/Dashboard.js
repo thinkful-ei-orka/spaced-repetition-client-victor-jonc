@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import UserContext from '../../contexts/UserContext';
 import TokenService from '../../services/token-service';
 import config from '../../config';
+import Button from '../Button/Button'
 
 export default class Dashboard extends Component {
   state = {
@@ -42,7 +43,7 @@ export default class Dashboard extends Component {
         <h2 className='dashboard-header'>
           Dashboard {this.context.language.name}
           <Link to='/learn'>
-            <button>Start practicing</button>
+            <Button>Start practicing</Button>
           </Link>
         </h2>
         <h3>Words to practice</h3>

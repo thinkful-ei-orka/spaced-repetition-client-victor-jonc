@@ -40,7 +40,7 @@ class Header extends Component {
 
   render() {
     return (
-      <header>
+      <header role='navigation'>
         <h1>
           <Link to='/'>
             Learn Spanish!
