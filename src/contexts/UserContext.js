@@ -6,23 +6,23 @@ import IdleService from '../services/idle-service';
 const UserContext = React.createContext({
   user: {},
   error: null,
-  setError: () => { },
-  clearError: () => { },
-  setUser: () => { },
-  processLogin: () => { },
-  processLogout: () => { },
+  setError: () => {},
+  clearError: () => {},
+  setUser: () => {},
+  processLogin: () => {},
+  processLogout: () => {},
   language: null,
   words: [],
   totalScore: null,
   nextWord: {},
   currentWord: {},
   guess: null,
-  setLanguage: () => { },
-  setWords: () => { },
-  setNextWord: () => { },
-  setScore: () => { },
-  setCurrentWord: () => { },
-  setGuess: () => { },
+  setLanguage: () => {},
+  setWords: () => {},
+  setNextWord: () => {},
+  setScore: () => {},
+  setCurrentWord: () => {},
+  setGuess: () => {},
 });
 
 export default UserContext;
@@ -40,6 +40,7 @@ export class UserProvider extends Component {
       currentWord: null,
       guess: null,
       isLoading: true,
+      isCorrect: null,
     };
 
     const jwtPayload = TokenService.parseAuthToken();
@@ -68,9 +69,15 @@ export class UserProvider extends Component {
     IdleService.unRegisterIdleResets();
     TokenService.clearCallbackBeforeExpiry();
   }
+  setAnswer = (data) => {
+    this.setState({ answer: data });
+  };
 
   setIsLoading = () => {
     this.setState({ isLoading: false });
+  };
+  setIsCorrect = (bool) => {
+    this.setState({ isCorrect: bool });
   };
 
   setLanguage = (language) => {
@@ -169,6 +176,10 @@ export class UserProvider extends Component {
       setGuess: this.setGuess,
       isLoading: this.state.isLoading,
       setIsLoading: this.setIsLoading,
+      isCorrect: this.state.isCorrect,
+      setIsCorrect: this.setIsCorrect,
+      setAnswer: this.setAnswer,
+      answer: this.state.answer,
     };
     return (
       <UserContext.Provider value={value}>

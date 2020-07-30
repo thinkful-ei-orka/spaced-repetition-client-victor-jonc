@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import UserContext from '../../contexts/UserContext';
 import TokenService from '../../services/token-service';
 import config from '../../config';
-import Button from '../Button/Button'
+import Button from '../Button/Button';
 
 export default class Dashboard extends Component {
   state = {
