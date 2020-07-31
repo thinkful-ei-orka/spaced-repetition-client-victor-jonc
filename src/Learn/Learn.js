@@ -22,7 +22,7 @@ export default class Learn extends React.Component {
   static contextType = UserContext;
 
   getTheNextWord = () => {
-    console.log('trying to get the next word');
+    // console.log('trying to get the next word');
     return fetch(`${config.API_ENDPOINT}/language/head`, {
       method: 'GET',
       headers: {
@@ -31,12 +31,12 @@ export default class Learn extends React.Component {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log('successfully got the next word');
+        // console.log('successfully got the next word');
         this.context.setNextWord(data);
       })
       .then(() => this.context.setIsLoading(false))
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         this.context.setError(err);
       });
   };

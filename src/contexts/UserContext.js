@@ -155,7 +155,7 @@ export class UserProvider extends Component {
 
   render() {
     // console.log(this.state.currentWord)
-    console.log(this.state.nextWord);
+    // console.log(this.state.nextWord);
     const value = {
       user: this.state.user,
       error: this.state.error,

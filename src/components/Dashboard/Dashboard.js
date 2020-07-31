@@ -22,7 +22,7 @@ export default class Dashboard extends Component {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         this.context.setWords(res.words);
         this.context.setLanguage(res.language);
         // this.context.setScore(res.)
