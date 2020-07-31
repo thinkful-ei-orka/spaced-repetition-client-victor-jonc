@@ -2,6 +2,7 @@ import React from 'react';
 import TokenService from '../services/token-service';
 import config from '../config';
 import UserContext from '../contexts/UserContext';
+import './Learn.css';
 // import Button from '../components/Button/Button';
 // import Feedback from '../components/Feedback/Feedback';
 
@@ -91,11 +92,11 @@ export default class Learn extends React.Component {
       <div className='learn-container'>
         <section className='learn-data'>
           <p>Your total score is: {this.context.nextWord.totalScore}</p>
-          <div>
+          <div className='translate'>
             <h2>Translate the word:</h2>{' '}
-            <span>{this.context.nextWord.nextWord}</span>
+            <span className='nextword'>{this.context.nextWord.nextWord}</span>
           </div>
-          <div>
+          <div className='answered-info'>
             <p>
               You have answered this word correctly{' '}
               {this.context.nextWord.wordCorrectCount} times.
@@ -119,6 +120,7 @@ export default class Learn extends React.Component {
               type='text'
               id='learn-guess-input'
               name='learn-guess-input'
+              placeholder='Input your answer...'
               required
             />
             <button type='submit'>Submit your answer</button>

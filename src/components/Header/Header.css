@@ -1,0 +1,24 @@
+.login-buttons {
+  margin: 20px 5px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  width: 40%;
+  height: 40px;
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Lato', sans-serif;
+  color: #fff;
+  text-align: center;
+  background: #1565c0;
+  box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+  transition: 0.5s;
+}
+
+.login-buttons:hover {
+  background: #5e92f3;
+}
+.login-buttons:active {
+  background: #5e92f3;
+}

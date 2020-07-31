@@ -4,6 +4,7 @@ import UserContext from '../../contexts/UserContext';
 import TokenService from '../../services/token-service';
 import config from '../../config';
 import Button from '../Button/Button';
+import './dashboard.css';
 
 export default class Dashboard extends Component {
   state = {
@@ -42,20 +43,20 @@ export default class Dashboard extends Component {
     }
     return (
       <div className='dashboard-container'>
+        <h3>Dashboard</h3>
         Total correct answers:
         {!this.context.language.total_score
           ? 0
           : this.context.language.total_score}
         <h2 className='dashboard-header'>
-          Dashboard {this.context.language.name}
           <Link to='/learn'>
             <Button>Start practicing</Button>
           </Link>
         </h2>
         <h3>Words to practice</h3>
-        <ul>
+        <ul className='wordlist'>
           {this.context.words.map((word) => (
-            <li key={word.id}>
+            <li className='eachword' key={word.id}>
               <h4>{word.original}</h4>
               <span>correct answer count: {word.correct_count}</span>
               <span>incorrect answer count: {word.incorrect_count}</span>
