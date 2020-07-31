@@ -6,23 +6,23 @@ import IdleService from '../services/idle-service';
 const UserContext = React.createContext({
   user: {},
   error: null,
-  setError: () => { },
-  clearError: () => { },
-  setUser: () => { },
-  processLogin: () => { },
-  processLogout: () => { },
+  setError: () => {},
+  clearError: () => {},
+  setUser: () => {},
+  processLogin: () => {},
+  processLogout: () => {},
   language: null,
   words: [],
   totalScore: null,
   nextWord: {},
   currentWord: {},
   guess: null,
-  setLanguage: () => { },
-  setWords: () => { },
-  setNextWord: () => { },
-  setScore: () => { },
-  setCurrentWord: () => { },
-  setGuess: () => { },
+  setLanguage: () => {},
+  setWords: () => {},
+  setNextWord: () => {},
+  setScore: () => {},
+  setCurrentWord: () => {},
+  setGuess: () => {},
 });
 
 export default UserContext;
@@ -35,8 +35,8 @@ export class UserProvider extends Component {
       error: null,
       language: null,
       words: [],
-      totalScore: null,
-      nextWord: null,
+      totalScore: 0,
+      nextWord: [],
       currentWord: null,
       guess: null,
       isLoading: true,
@@ -73,8 +73,8 @@ export class UserProvider extends Component {
     this.setState({ answer: data });
   };
 
-  setIsLoading = () => {
-    this.setState({ isLoading: false });
+  setIsLoading = (bool) => {
+    this.setState({ isLoading: bool });
   };
   setIsCorrect = (bool) => {
     this.setState({ isCorrect: bool });
@@ -155,7 +155,7 @@ export class UserProvider extends Component {
 
   render() {
     // console.log(this.state.currentWord)
-    console.log(this.state.nextWord)
+    console.log(this.state.nextWord);
     const value = {
       user: this.state.user,
       error: this.state.error,

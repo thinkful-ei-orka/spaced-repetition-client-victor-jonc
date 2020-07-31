@@ -21,25 +21,31 @@ export default class Dashboard extends Component {
     })
       .then((res) => res.json())
       .then((res) => {
+        console.log(res);
         this.context.setWords(res.words);
         this.context.setLanguage(res.language);
-        this.context.setIsLoading();
+        // this.context.setScore(res.)
       })
+      .then(() => this.context.setIsLoading(false))
 
       .catch((error) => this.setState({ error: error }));
   };
 
   componentDidMount() {
+    // this.context.setIsLoading(true);
     this.getData();
   }
 
   render() {
-    if (this.context.isLoading) {
+    if (this.context.isLoading == true) {
       return <div>Loading...</div>;
     }
     return (
       <div className='dashboard-container'>
-        Total correct answers: {this.context.language.total_score}
+        Total correct answers:
+        {!this.context.language.total_score
+          ? 0
+          : this.context.language.total_score}
         <h2 className='dashboard-header'>
           Dashboard {this.context.language.name}
           <Link to='/learn'>
