@@ -23,12 +23,12 @@ export default function Feedback() {
         </button>
       </div>
     );
-  } else if (context.isCorrect == false) {
+  } else if (context.isCorrect === false) {
     return (
       <div className='incorrect'>
         <h2>Good try, but not quite right :(</h2>
         <div className='DisplayScore'>
-          <p>Your total score is: {context.nextWord.totalScore}</p>
+          <p>Your total score is: {context.totalScore}</p>
         </div>
         <div className='DisplayFeedback'>
           <p>

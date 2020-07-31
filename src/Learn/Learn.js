@@ -2,8 +2,8 @@ import React from 'react';
 import TokenService from '../services/token-service';
 import config from '../config';
 import UserContext from '../contexts/UserContext';
-import Button from '../components/Button/Button';
-import Feedback from '../components/Feedback/Feedback';
+// import Button from '../components/Button/Button';
+// import Feedback from '../components/Feedback/Feedback';
 
 /*
 set up a componentdidmount for language/head
@@ -30,7 +30,6 @@ export default class Learn extends React.Component {
           })
                .then((res) => res.json())
                .then((data) => {
-                    // console.log(data)
                     console.log('successfully got the next word')
                     this.context.setNextWord(data);
                     this.context.setIsLoading();
@@ -59,11 +58,8 @@ export default class Learn extends React.Component {
           })
                .then((res) => res.json())
                .then((data) => {
-                    // console.log(data)
                     this.context.setScore(data.totalScore);
                     this.context.setAnswer(data.answer);
-                    // console.log(data.isCorrect);
-                    // this.getTheNextWord();
                     this.context.setNextWord(data);
                     this.context.setIsCorrect(data.isCorrect);
                });
@@ -85,14 +81,14 @@ export default class Learn extends React.Component {
      }
 
      render() {
-          if (this.context.isLoading == true) {
+          if (this.context.isLoading === true) {
                return <div>loading...</div>;
           }
 
           return (
-               <>
+               <div className='learn-container'>
                     <section className='learn-data'>
-                         <p>Your total score is: {this.context.totalScore}</p>
+                         <p>Your total score is: {this.context.nextWord.totalScore}</p>
                          <div>
                               <h2>Translate the word:</h2>{' '}
                               <span>{this.context.nextWord.nextWord}</span>
@@ -101,11 +97,11 @@ export default class Learn extends React.Component {
                               <p>
                                    You have answered this word correctly{' '}
                                    {this.context.nextWord.wordCorrectCount} times.
-            </p>
+                              </p>
                               <p>
                                    You have answered this word incorrectly{' '}
                                    {this.context.nextWord.wordIncorrectCount} times.
-            </p>
+                              </p>
                          </div>
                     </section>
                     <section className='word-guess'>
@@ -116,17 +112,12 @@ export default class Learn extends React.Component {
                               }}>
                               <label htmlFor='learn-guess-input' className='guessinput'>
                                    What's the translation for this word?
-            </label>
-                              <input
-                                   type='text'
-                                   id='learn-guess-input'
-                                   name='learn-guess-input'
-                                   required
-                              />
+                              </label>
+                              <input type='text' id='learn-guess-input' name='learn-guess-input' required />
                               <button type='submit'>Submit your answer</button>
                          </form>
                     </section>
-               </>
+               </div>
           );
      }
 }
